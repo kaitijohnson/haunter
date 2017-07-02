@@ -3,8 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "external-editor": "^2.0.4",
+    "is-promise": "^2.1.0",
+    "jquery": "^3.2.1",
+    "mimic-fn": "^1.1.0",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react-dom": "^15.6.1",
+    "rx-lite-aggregates": "^4.0.8",
+    "watson-developer-cloud": "^2.32.1"
   },
   "devDependencies": {
     "react-scripts": "1.0.7"
