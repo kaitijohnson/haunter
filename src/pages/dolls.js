@@ -101,7 +101,7 @@ class Dolls extends Component {
         <div key={index}>
           <img src={doll.pic}/>
           <h5>{doll.name}</h5>
-          <a href={doll.listing}>ebay listing</a>
+          <button href={doll.listing}>ebay listing</button>
         </div>
       )
     })
