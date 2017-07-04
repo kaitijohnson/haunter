@@ -2,9 +2,10 @@
 exports.up = function(knex) {
   return knex.schema.createTable('users', (table) => {
     table.increments()
-    table.string('fullName').notNullable()
-    table.string('userName').unique().notNullable()
-    table.string('insights', 80).notNullable()
+    table.string('first_name').notNullable()
+    table.string('last_name').notNullable()
+    table.string('email').unique().notNullable()
+    table.string('sentiment').notNullable()
     // table.string('profilePicture').notNullable()
     // table.string('instagramId').notNullable()
     table.timestamps(true, true)
