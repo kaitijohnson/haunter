@@ -41,7 +41,7 @@ class Survey extends Component {
     return (
       <div>
         <div className="survey-content">
-            <p> Please describe your ideal haunted doll:
+            <p> Describe your ideal haunted doll:
             </p>
             <div className="border-outer">
             <div className="border-inner">

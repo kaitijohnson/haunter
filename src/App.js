@@ -14,10 +14,13 @@ class App extends Component {
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
         </div>
-        <div className="App-intro">
-          <Dolls />
-          <Survey />
+        <div className="holder">
+          <div className="App-intro">
+            <Survey />
+            <br /><br /><br /><br /><br /> 
+            <Dolls />
 
+         </div>
         </div>
         <div className="toolbar">
         <img src={menu} className="img-fluid menu" alt="Responsive image" />
@@ -25,6 +28,7 @@ class App extends Component {
         <img src={heart} className="img-fluid heart" alt="Responsive image" />
         </div>
       </div>
+
     );
   }
 }
