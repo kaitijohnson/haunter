@@ -1,22 +1,93 @@
+body {
+  background-color: rgba(254, 94, 97, 0.9);
+}
+
+p {
+  font-size: 21px;
+  margin-bottom: 15;
+}
+
 .App {
   text-align: center;
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+  /*animation: App-logo-spin infinite 20s linear;*/
+  height: 120px;
 }
 
 .App-header {
   background-color: #222;
-  height: 150px;
-  padding: 20px;
+  /*height: 150px;*/
+  padding: 10px;
   color: white;
 }
 
 .App-intro {
-  font-size: large;
+  margin: 0;
+  padding: 0;
+  height: 100%;
 }
+
+.texting{
+  background-color: #222;
+  color: white;
+  font-size: 18px;
+  padding: 5px;
+}
+
+.border-inner {
+  border-style: solid;
+  border-color: white;
+  border-width: 1px;
+  margin: 0;
+  padding: 0;
+}
+.border-outer {
+  border-style: solid;
+  border-color: #222;
+  border-width: 10px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.ghost {
+  /*background-color: black;*/
+  height: 55px;
+  animation: App-logo-spin 2s linear;
+}
+
+.heart {
+  /*background-color: black;*/
+  height: 35px;
+  padding-left: 40px;
+}
+
+.menu {
+  /*background-color: black;*/
+  height: 40px;
+  padding-right: 40px;
+}
+
+.toolbar {
+  background-color: #222;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  padding: 10px;
+}
+
+.survey-content {
+  position: absolute center;
+  padding-top: 40px;
+}
+
+.survey-btn {
+  background-color: #222;
+  color: white;
+  margin-bottom: 50px;
+}
+
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
