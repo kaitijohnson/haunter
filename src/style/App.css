@@ -27,6 +27,7 @@ p {
   margin: 0;
   padding: 0;
   height: 100%;
+  overflow: hidden scroll;
 }
 
 .texting{
@@ -55,6 +56,16 @@ p {
   /*background-color: black;*/
   height: 55px;
   animation: App-logo-spin 2s linear;
+}
+
+.ghost2 {
+  /*background-color: black;*/
+  height: 150px;
+  animation-name: Ghost-fly;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-duration: 4s;
+  /*position: absolute center;*/
 }
 
 .heart {
@@ -92,4 +103,16 @@ p {
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+@keyframes Ghost-fly {
+  from {
+    margin-left: 60%;
+    transform: rotate(30deg);
+  }
+
+  to {
+    margin-left: 5%;
+    transform: rotate(-30deg);
+  }
 }

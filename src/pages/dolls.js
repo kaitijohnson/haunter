@@ -2,8 +2,10 @@ import React, {Component} from 'react'
 import $ from 'jquery'
 import ReactDOM from 'react-dom'
 import ReactBootstrap from 'react-bootstrap'
+import Slider from 'react-slick'
+import ghost from '../style/Tinder-Ghost.png';
+// var Slider = require('react-slick');
 
-var Carousel = require('react-responsive-carousel').Carousel;
 
 class Dolls extends Component {
   constructor(props) {
@@ -73,7 +75,7 @@ class Dolls extends Component {
     }
     $.ajax({
       method: 'get',
-      url: `http://svcs.ebay.com/services/search/FindingService/v1?OPERATION-NAME=findItemsByKeywords&SECURITY-APPNAME=KaitiJoh-Haunter-PRD-cb7edec1b-16a9a9e8&RESPONSE-DATA-FORMAT=JSON&REST-PAYLOAD&keywords=haunted%20doll&paginationInput.entriesPerPage=1&paginationInput.pageNumber=2`,
+      url: `http://svcs.ebay.com/services/search/FindingService/v1?OPERATION-NAME=findItemsByKeywords&SECURITY-APPNAME=KaitiJoh-Haunter-PRD-cb7edec1b-16a9a9e8&RESPONSE-DATA-FORMAT=JSON&REST-PAYLOAD&keywords=haunted%20doll&paginationInput.entriesPerPage=3&paginationInput.pageNumber=2`,
       dataType: 'json',
       success: function(data) {
         let allDolls = data.findItemsByKeywordsResponse[0].searchResult[0].item
@@ -98,21 +100,37 @@ class Dolls extends Component {
     })
   }
 
-  render() {
+  render () {
     // let dolls = this.state.currentDolls
+    var settings = {
+      dots: false,
+      arrows: false,
+      swipe: true,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1
+    };
+    console.log('CURRENT', this.state.currentDolls);
     let dollsList = this.state.currentDolls.map(function(doll, index){
-      console.log(doll)
+      console.log('PIIIIC', doll.pic)
       return(
         <div key={index}>
-          <img src={doll.pic} alt="doll"/>
-          <p className="legend">{doll.name}</p>
+          <img src={doll.pic} alt="doll" />
         </div>
       )
+    // }
     })
+    console.log('dollsARR', dollsList);
     return (
-      <Carousel showArrows={true} showThumbs={false} showIndicators={false} showStatus={false}>
-      {dollsList}
-      </Carousel>
+      <div>
+      <Slider {...settings}>
+        <div><p>searching the other side...
+        <img src={ghost} className="ghost2" />
+        </p></div>
+        {dollsList}
+      </Slider>
+      </div>
     )
   }
 }
