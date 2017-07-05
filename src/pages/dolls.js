@@ -4,7 +4,6 @@ import ReactDOM from 'react-dom'
 import ReactBootstrap from 'react-bootstrap'
 import Slider from 'react-slick'
 import ghost from '../style/Tinder-Ghost.png';
-// var Slider = require('react-slick');
 
 
 class Dolls extends Component {
@@ -13,15 +12,7 @@ class Dolls extends Component {
     this.state = {
       currentDolls: []
     }
-    // this.secondAjax = this.secondAjax.bind(this)
-    // this.selectDoll = this.selectDoll.bind(this)
   }
-
-  // selectDoll(e) {
-  //   if (e.target.src) {
-  //     $('#doll').attr('src', e.target.src)
-  //   }
-  // }
 
   componentWillMount() {
     console.log(this.state);
@@ -38,7 +29,8 @@ class Dolls extends Component {
             console.log(err);
           }
         }).then(function(data) {
-          return data.Item.Description;
+          console.log("ebay2: ", data)
+          return {pic: data.Item.PictureURL[0], description: data.Item.Description}
         })
       }))
     }
@@ -67,8 +59,8 @@ class Dolls extends Component {
     function makeTheDolls(dollsArray, descriptions, emotions) {
       // console.log(dollsArray, descriptions, emotions);
       var dasDolls = [];
-      return Promise.all(dollsArray.map(function(doll, index) {
-        dasDolls.push({name: doll.title[0], description: descriptions[index], pic: doll.galleryURL[0], listing: doll.viewItemURL[0], sentiment: emotions[index]})
+      return Promise.all(dollsArray.map(function(doll, index){
+        dasDolls.push({name: doll.title[0], description: descriptions[index].description, pic: descriptions[index].pic, listing: doll.viewItemURL[0], sentiment: emotions[index]})
       })).then((thing) => {
         return dasDolls;
       })
@@ -87,7 +79,7 @@ class Dolls extends Component {
       let allDolls = dollsArray.findItemsByKeywordsResponse[0].searchResult[0].item;
       // console.log('das dolls', allDolls);
       return Promise.all([secondAjax(allDolls)]).then(function(descriptions) {
-        // console.log('hella descriptions', descriptions);
+        console.log('hella descriptions', descriptions);
         return Promise.all([thirdAjax(descriptions[0])]).then(function(emotions) {
           // console.log('hella analysis', emotions);
           return Promise.all([makeTheDolls(allDolls, descriptions[0], emotions[0])]).then(function(dasDolls) {
@@ -101,22 +93,23 @@ class Dolls extends Component {
   }
 
   render () {
-    // let dolls = this.state.currentDolls
     var settings = {
       dots: false,
       arrows: false,
       swipe: true,
+      useCSS: true,
       infinite: true,
       speed: 500,
       slidesToShow: 1,
       slidesToScroll: 1
     };
-    console.log('CURRENT', this.state.currentDolls);
+
     let dollsList = this.state.currentDolls.map(function(doll, index){
-      console.log('PIIIIC', doll.pic)
       return(
         <div key={index}>
-          <img src={doll.pic} alt="doll" />
+          <p>{doll.name}<img src={doll.pic} alt="doll" className="slide"/></p>
+          <h5></h5>
+          <div>{doll.description}</div>
         </div>
       )
     // }

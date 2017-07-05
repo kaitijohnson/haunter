@@ -24,6 +24,12 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "heroku-postbuild": "knex migrate:rollback; knex migrate:latest; knex seed:run",
+    "start": "node ./bin/www",
+    "nodemon": "node app.js"
+  },
+  "engines": {
+    "node": "v8.0.0"
   }
 }
