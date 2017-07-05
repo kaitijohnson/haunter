@@ -6,9 +6,12 @@
     "external-editor": "^2.0.4",
     "is-promise": "^2.1.0",
     "jquery": "^3.2.1",
+    "js-base64": "^2.1.9",
     "mimic-fn": "^1.1.0",
     "react": "^15.6.1",
+    "react-bootstrap": "^0.31.0",
     "react-dom": "^15.6.1",
+    "react-responsive-carousel": "^3.1.24",
     "rx-lite-aggregates": "^4.0.8",
     "watson-developer-cloud": "^2.32.1"
   },
