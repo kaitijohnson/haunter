@@ -67,7 +67,7 @@ class Dolls extends Component {
     }
     $.ajax({
       method: 'get',
-      url: `http://svcs.ebay.com/services/search/FindingService/v1?OPERATION-NAME=findItemsByKeywords&SECURITY-APPNAME=KaitiJoh-Haunter-PRD-cb7edec1b-16a9a9e8&RESPONSE-DATA-FORMAT=JSON&REST-PAYLOAD&keywords=haunted%20doll&paginationInput.entriesPerPage=3&paginationInput.pageNumber=2`,
+      url: `http://svcs.ebay.com/services/search/FindingService/v1?OPERATION-NAME=findItemsByKeywords&SECURITY-APPNAME=KaitiJoh-Haunter-PRD-cb7edec1b-16a9a9e8&RESPONSE-DATA-FORMAT=JSON&REST-PAYLOAD&keywords=haunted%20doll&paginationInput.entriesPerPage=1&paginationInput.pageNumber=2`,
       dataType: 'json',
       success: function(data) {
         let allDolls = data.findItemsByKeywordsResponse[0].searchResult[0].item
@@ -116,7 +116,7 @@ class Dolls extends Component {
     })
     console.log('dollsARR', dollsList);
     return (
-      <div>
+      <div id="load">
       <Slider {...settings}>
         <div><p>searching the other side...
         <img src={ghost} className="ghost2" />

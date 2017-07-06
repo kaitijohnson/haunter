@@ -10,21 +10,23 @@ import Survey from './pages/survey';
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div className="App" id="top">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
         </div>
         <div className="holder">
           <div className="App-intro">
+            <br /><br /><br />
             <Survey />
-            <br /><br /><br /><br /><br /> 
+            <br /><br />
+            <div id="land"></div>
             <Dolls />
 
          </div>
         </div>
         <div className="toolbar">
         <img src={menu} className="img-fluid menu" alt="Responsive image" />
-        <img src={ghost} className="img-fluid ghost" alt="Responsive image" />
+        <a href="#top"><img src={ghost} className="img-fluid ghost" alt="Responsive image" /></a>
         <img src={heart} className="img-fluid heart" alt="Responsive image" />
         </div>
       </div>

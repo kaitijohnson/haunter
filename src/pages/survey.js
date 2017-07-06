@@ -10,17 +10,21 @@ class Survey extends Component {
   constructor(props) {
     super(props)
 
-    this.state = {text: ''}
-    this.handleChange = this.handleChange.bind(this)
-    this.handeClick = this.handleChange.bind(this)
+    this.state = {
+      isHidden: false,
+      text: 'this is test data let\'s see what it do'}
+    // this.handleChange = this.handleChange.bind(this)
+    // this.handeClick = this.handleChange.bind(this)
   }
 
-  handleChange = (e) => {
-      this.setState({text: e.target.value})
-  }
+  // handleChange = (e) => {
+  //     this.setState({isHidden: true})
+  // }
 
   handleClick = (e) => {
-    let content = this.state.text.substring(3, this.state.text.length - 4)
+    this.state = {
+      isHidden: false
+    }
   }
   //   fetch(`/api/entries_modules/${this.props.entryModule.em_id}`, {
   //     method: 'PATCH',
@@ -48,14 +52,13 @@ class Survey extends Component {
               <ContentEditable
                 html={this.state.text}
                 disabled={false}
-                onChange={this.handleChange}
                 className="texting"
               />
             </div>
             </div>
 
             <br></br>
-            <button type="button" className="btn btn-outline-primary survey-btn" onClick={this.handleClick}>Submit</button>
+            <button type="button" className="btn btn-outline-primary survey-btn"><a href="#land">Submit</a></button>
         </div>
       </div>
     )
