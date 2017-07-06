@@ -16,9 +16,9 @@ class App extends Component {
         </div>
         <div className="holder">
           <div className="App-intro">
-            <br /><br /><br />
+
             <Survey />
-            <br /><br />
+            <br /><br /><br /><br /><br />
             <div id="land"></div>
             <Dolls />
 

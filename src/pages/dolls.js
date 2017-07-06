@@ -67,7 +67,7 @@ class Dolls extends Component {
     }
     $.ajax({
       method: 'get',
-      url: `http://svcs.ebay.com/services/search/FindingService/v1?OPERATION-NAME=findItemsByKeywords&SECURITY-APPNAME=KaitiJoh-Haunter-PRD-cb7edec1b-16a9a9e8&RESPONSE-DATA-FORMAT=JSON&REST-PAYLOAD&keywords=haunted%20doll&paginationInput.entriesPerPage=1&paginationInput.pageNumber=2`,
+      url: `http://svcs.ebay.com/services/search/FindingService/v1?OPERATION-NAME=findItemsByKeywords&SECURITY-APPNAME=KaitiJoh-Haunter-PRD-cb7edec1b-16a9a9e8&RESPONSE-DATA-FORMAT=JSON&REST-PAYLOAD&keywords=haunted%20doll&paginationInput.entriesPerPage=21&paginationInput.pageNumber=1`,
       dataType: 'json',
       success: function(data) {
         let allDolls = data.findItemsByKeywordsResponse[0].searchResult[0].item
@@ -93,6 +93,7 @@ class Dolls extends Component {
   }
 
   render () {
+    console.log("doll data: ", this.state.currentDolls)
     var settings = {
       dots: false,
       arrows: false,
@@ -105,10 +106,17 @@ class Dolls extends Component {
     };
 
     let dollsList = this.state.currentDolls.map(function(doll, index){
+      let matchScore;
+       if(Math.round(doll.sentiment[3].score/0.000088) > 99) {
+         matchScore = 100
+       } else {
+         matchScore = Math.round(doll.sentiment[3].score/0.000088)
+       }
       return(
         <div key={index}>
+        <h2>{matchScore}% match</h2>
           <p>{doll.name}<img src={doll.pic} alt="doll" className="slide"/></p>
-          <h5></h5>
+          <button type="button" className="btn btn-outline-primary survey-btn"><a href={doll.listing}>Buy</a></button>
           <div>{doll.description}</div>
         </div>
       )
@@ -116,9 +124,9 @@ class Dolls extends Component {
     })
     console.log('dollsARR', dollsList);
     return (
-      <div id="load">
+      <div>
       <Slider {...settings}>
-        <div><p>searching the other side...
+        <div id="load"><p className="large-p">searching the other side...
         <img src={ghost} className="ghost2" />
         </p></div>
         {dollsList}

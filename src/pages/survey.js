@@ -12,7 +12,7 @@ class Survey extends Component {
 
     this.state = {
       isHidden: false,
-      text: 'this is test data let\'s see what it do'}
+      text: 'I would like a highly active doll that is friendly and helpful. A sweet spirit that will bring positive energy.'}
     // this.handleChange = this.handleChange.bind(this)
     // this.handeClick = this.handleChange.bind(this)
   }
