@@ -15,9 +15,7 @@
     "react-slick": "^0.14.11",
     "rx-lite-aggregates": "^4.0.8",
     "slick-carousel": "^1.6.0",
-    "watson-developer-cloud": "^2.32.1"
-  },
-  "devDependencies": {
+    "watson-developer-cloud": "^2.32.1",
     "react-scripts": "1.0.7"
   },
   "scripts": {

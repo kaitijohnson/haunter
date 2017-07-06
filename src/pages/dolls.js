@@ -107,7 +107,7 @@ class Dolls extends Component {
 
     let dollsList = this.state.currentDolls.map(function(doll, index){
       let matchScore;
-       if(Math.round(doll.sentiment[3].score/0.000088) > 99) {
+       if(Math.round(doll.sentiment[3].score/0.000095) > 99) {
          matchScore = 100
        } else {
          matchScore = Math.round(doll.sentiment[3].score/0.000088)
