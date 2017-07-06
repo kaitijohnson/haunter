@@ -22,7 +22,7 @@ class Dolls extends Component {
         var idNumber = doll.itemId[0];
         return $.ajax({
           method: 'get',
-          url: `https://open.api.ebay.com/shopping?callname=GetSingleItem&responseencoding=JSON&appid=KaitiJoh-Haunter-PRD-cb7edec1b-16a9a9e8&siteid=0&version=967&ItemID=${idNumber}&IncludeSelector=Description`,
+          url: `http://open.api.ebay.com/shopping?callname=GetSingleItem&responseencoding=JSON&appid=KaitiJoh-Haunter-PRD-cb7edec1b-16a9a9e8&siteid=0&version=967&ItemID=${idNumber}&IncludeSelector=Description`,
           dataType: 'json',
           success: function(data) {},
           error: function(err) {
@@ -67,7 +67,7 @@ class Dolls extends Component {
     }
     $.ajax({
       method: 'get',
-      url: `https://svcs.ebay.com/services/search/FindingService/v1?OPERATION-NAME=findItemsByKeywords&SECURITY-APPNAME=KaitiJoh-Haunter-PRD-cb7edec1b-16a9a9e8&RESPONSE-DATA-FORMAT=JSON&REST-PAYLOAD&keywords=haunted%20doll&paginationInput.entriesPerPage=21&paginationInput.pageNumber=1`,
+      url: `http://svcs.ebay.com/services/search/FindingService/v1?OPERATION-NAME=findItemsByKeywords&SECURITY-APPNAME=KaitiJoh-Haunter-PRD-cb7edec1b-16a9a9e8&RESPONSE-DATA-FORMAT=JSON&REST-PAYLOAD&keywords=haunted%20doll&paginationInput.entriesPerPage=21&paginationInput.pageNumber=1`,
       dataType: 'json',
       success: function(data) {
         let allDolls = data.findItemsByKeywordsResponse[0].searchResult[0].item
