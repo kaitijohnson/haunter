@@ -129,12 +129,30 @@ p {
     font-size: 30px;
 }
 
+.see-results {
+  animation-name: fadeinout;
+  animation-iteration-count: infinite;
+  animation-direction: forwards;
+  animation-duration: 4s;
+    /*-webkit-animation: fadeinout 4s linear forwards;
+    animation: fadeinout 4s linear forwards;*/
+    opacity: 0;
+}
+
 #land {
   margin-top: 140px;
 }
 
 #load {
   padding-top: 140px;
+}
+
+@keyframes fadeinout {
+  50% { opacity: 1; }
+}
+
+@keyframes fadeinout {
+  50% { opacity: 1; }
 }
 
 @keyframes App-logo-spin {
